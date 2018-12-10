@@ -34,6 +34,18 @@ pub struct gaih_addrtuple {
 }
 
 #[no_mangle]
+pub extern "C" fn _nss_doh_gethostbyname_r(
+    name: *const c_char,
+    result_buf: *mut hostent,
+    buf: *mut c_char,
+    buflen: size_t,
+    errnop: *mut c_int,
+    h_errnop: *mut c_int,
+) -> c_int {
+    _nss_doh_gethostbyname2_r(name, libc::AF_INET, result_buf, buf, buflen, errnop, h_errnop)
+}
+
+#[no_mangle]
 pub extern "C" fn _nss_doh_gethostbyname2_r(
     name: *const c_char,
     af: c_int,
