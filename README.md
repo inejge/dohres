@@ -45,7 +45,7 @@ sudo install -m 644 target/release/libdohres.so /lib64/libnss_doh.so.2
 ## Configuring NSS
 
 To use the service, its name must be specified in the line for the
-`hosts:` database. On Ubuntu, you might use
+`hosts:` database in */etc/nsswitch.conf*. On Ubuntu, you might use
 
 ```
 hosts:          files mdns4_minimal [NOTFOUND=return] dns doh
