@@ -33,13 +33,13 @@ patchelf --set-soname libnss_doh.so.2 target/release/libdohres.so
 Installing on Ubuntu 64-bit:
 
 ```shell
-sudo install -m 644 target/release/libdohres.so /lib/x86_64-linux-gnu/libnss_doh.so.2
+sudo install -m 644 -o root -g root target/release/libdohres.so /lib/x86_64-linux-gnu/libnss_doh.so.2
 ```
 
 Installing on CentOS 64-bit:
 
 ```shell
-sudo install -m 644 target/release/libdohres.so /lib64/libnss_doh.so.2
+sudo install -m 755 -o root -g root target/release/libdohres.so /lib64/libnss_doh.so.2
 ```
 
 ## Configuring NSS
